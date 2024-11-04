@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Tracker Blocker",
+    "version": "1.0",
+    "description": "Plugin para Firefox que identifica e bloqueia rastreadores.",
+    "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "storage",
+      "tabs",
+      "<all_urls>"
+    ],
+    "background": {
+      "scripts": ["scripts/background.js"],
+      "persistent": true
+    },
+    "browser_action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": {
+        "16": "icons/logo.png",
+        "48": "icons/logo.png",
+        "128": "icons/logo.png"
+      }
+    },
+    "icons": {
+      "16": "icons/logo.png",
+      "48": "icons/logo.png",
+      "128": "icons/logo.png"
+    }
+  }
+  
