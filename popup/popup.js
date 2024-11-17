@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Atualizar a interface do popup
         statusDiv.innerHTML = '';
         if (trackers.length > 0) {
-            statusDiv.textContent = "Rastreadores bloqueados:";
             const ul = document.createElement('ul');
             trackers.forEach(domain => {
                 const li = document.createElement('li');
