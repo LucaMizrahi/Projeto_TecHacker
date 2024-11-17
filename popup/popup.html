@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <h1>Tracker Blocker</h1>
-  <div id="status">Rastreadores bloqueados serão listados aqui.</div>
-  <script src="popup.js"></script>
+    <h1>Tracker Blocker</h1>
+
+    <!-- Seção para alternar o bloqueio -->
+    <div class="section">
+        <label for="blockToggle">Bloquear Rastreadores:</label>
+        <input type="checkbox" id="blockToggle">
+    </div>
+
+    <!-- Seção para exibir rastreadores bloqueados -->
+    <div class="section">
+        <div id="status"></div>
+    </div>
+
+    <script src="popup.js"></script>
 </body>
 </html>
