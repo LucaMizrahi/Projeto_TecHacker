@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const statusDiv = document.getElementById('status');
-    const blockToggle = document.getElementById('blockToggle'); // Botão de alternância para ativar/desativar o bloqueio
+    const blockToggle = document.getElementById('blockToggle');
+    const customDomainInput = document.getElementById('customDomainInput');
+    const addDomainButton = document.getElementById('addDomainButton');
+    const removeDomainButton = document.getElementById('removeDomainButton');
+    const customDomainsList = document.getElementById('customDomainsList');
 
     function updatePopup(siteUrl, trackers) {
         console.log("Atualizando popup para o site:", siteUrl);
@@ -21,28 +25,57 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Atualizar estado do botão de alternância ao carregar o popup
-    function updateToggle() {
-        browser.storage.local.get('blockEnabled').then(data => {
-            blockToggle.checked = data.blockEnabled !== false; // Default é true
-            console.log(`Estado do bloqueio ao carregar: ${blockToggle.checked ? 'Ativado' : 'Desativado'}`);
-        }).catch(err => console.error("Erro ao acessar o estado do bloqueio:", err));
+    function updateCustomDomainsList() {
+        browser.storage.local.get('customTrackers').then(data => {
+            const customTrackers = data.customTrackers || [];
+            customDomainsList.innerHTML = '';
+            customTrackers.forEach(domain => {
+                const li = document.createElement('li');
+                li.textContent = domain;
+                customDomainsList.appendChild(li);
+            });
+        }).catch(err => console.error("Erro ao acessar a lista personalizada:", err));
     }
 
-    // Ouvir mensagens do background script para atualização em tempo real
-    browser.runtime.onMessage.addListener((message) => {
-        if (message.action === "updatePopup" && message.siteUrl && message.trackers) {
-            updatePopup(message.siteUrl, message.trackers);
+    addDomainButton.addEventListener('click', () => {
+        const domain = customDomainInput.value.trim();
+        if (domain) {
+            browser.storage.local.get('customTrackers').then(data => {
+                const customTrackers = data.customTrackers || [];
+                if (!customTrackers.includes(domain)) {
+                    customTrackers.push(domain);
+                    browser.storage.local.set({ customTrackers }).then(() => {
+                        console.log(`Domínio adicionado: ${domain}`);
+                        updateCustomDomainsList();
+                    });
+                }
+            });
         }
     });
 
-    // Alterar estado de bloqueio ao alternar o botão
+    removeDomainButton.addEventListener('click', () => {
+        const domain = customDomainInput.value.trim();
+        if (domain) {
+            browser.storage.local.get('customTrackers').then(data => {
+                const customTrackers = data.customTrackers || [];
+                const index = customTrackers.indexOf(domain);
+                if (index > -1) {
+                    customTrackers.splice(index, 1);
+                    browser.storage.local.set({ customTrackers }).then(() => {
+                        console.log(`Domínio removido: ${domain}`);
+                        updateCustomDomainsList();
+                    });
+                }
+            });
+        }
+    });
+
     blockToggle.addEventListener('change', () => {
         const enabled = blockToggle.checked;
         browser.storage.local.set({ blockEnabled: enabled }).then(() => {
             console.log(`Bloqueio de rastreadores ${enabled ? 'ativado' : 'desativado'}.`);
             browser.runtime.sendMessage({ action: "toggleBlock", enabled });
-        }).catch(err => console.error("Erro ao salvar o estado do bloqueio:", err));
+        });
     });
 
     // Atualizar o popup quando carregado
@@ -57,6 +90,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Inicializar o estado do botão de alternância
-    updateToggle();
+    updateCustomDomainsList();
 });

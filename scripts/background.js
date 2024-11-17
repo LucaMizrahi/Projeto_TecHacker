@@ -26,6 +26,10 @@ loadTrackerList().then(trackerList => {
                 return;
             }
 
+            // Combinar a lista personalizada com a lista padrão
+            const { customTrackers } = await browser.storage.local.get('customTrackers');
+            const combinedTrackers = trackerList.concat(customTrackers || []);
+
             // Obter a aba ativa para associar ao URL
             const tabs = await browser.tabs.query({ active: true, currentWindow: true });
             const activeTab = tabs[0];
@@ -33,8 +37,8 @@ loadTrackerList().then(trackerList => {
 
             console.log("Interceptando requisição para URL:", url.hostname, "Aba ativa:", tabUrl);
 
-            // Verificar se a URL contém algum rastreador na lista
-            const isTracker = trackerList.some(tracker => url.hostname.includes(tracker));
+            // Verificar se a URL contém algum rastreador na lista combinada
+            const isTracker = combinedTrackers.some(tracker => url.hostname.includes(tracker));
             console.log(`URL interceptada: ${url.hostname}, Bloquear: ${isTracker}`);
 
             if (isTracker) {
