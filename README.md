@@ -1,7 +1,3 @@
-Aqui está o README atualizado com a base de rastreadores utilizada:
-
----
-
 # Tracker Blocker - Firefox Plugin
 
 ## Colaboradores
@@ -77,8 +73,6 @@ Essa lista foi expandida e adaptada ao longo do desenvolvimento para incluir ras
 3. **Visualizar Rastreadores Bloqueados**  
    - Acesse a seção **Rastreadores Bloqueados** no popup para visualizar os rastreadores detectados e bloqueados para o site atual.  
 
----
-
 ## **Tecnologias Utilizadas**
 
 - **HTML, CSS e JavaScript**  
@@ -86,8 +80,6 @@ Essa lista foi expandida e adaptada ao longo do desenvolvimento para incluir ras
 
 - **API de Extensão do Firefox**  
   - Para interceptar requisições e gerenciar o bloqueio de rastreadores.  
-
----
 
 ## **Capturas de Tela**
 
@@ -97,16 +89,12 @@ Essa lista foi expandida e adaptada ao longo do desenvolvimento para incluir ras
 #### Rastreadores Bloqueados
 ![Status dos Rastreadores](./screenshots/trackers-status.png)
 
----
-
 ### **Contribuições**
 
 Contribuições são bem-vindas! Para enviar melhorias ou corrigir problemas:  
 
 1. Abra uma issue descrevendo a mudança desejada.  
 2. Envie um pull request com as alterações no repositório.  
-
----
 
 ### **Licença**
 
