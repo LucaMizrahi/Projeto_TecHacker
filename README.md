@@ -1,7 +1,7 @@
 # Tracker Blocker - Firefox Plugin
 
 ## Colaboradores
-- [Gustavo Stevenson](https://github.com/gustavoeso)
+- [Gustavo Oliveira](https://github.com/gustavoeso)
 - [Luca Mizrahi](https://github.com/LucaMizrahi)
 - [Pedro Paulo Camargo](https://github.com/PedroPauloMorenoCamargo)
 
@@ -15,7 +15,7 @@ O **Tracker Blocker** é uma extensão para o navegador Firefox desenvolvida par
 
 - **Gerenciamento de Domínios**:
   - Adicionar e remover domínios na lista personalizada.
-  
+
 - **Interface Simples e Intuitiva**:
   - Visualize e gerencie os rastreadores diretamente na extensão.
 
