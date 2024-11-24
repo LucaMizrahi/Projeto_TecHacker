@@ -44,8 +44,6 @@ A lista inicial de rastreadores incluía domínios amplamente conhecidos, como:
 
 Essa lista foi expandida e adaptada ao longo do desenvolvimento para incluir rastreadores adicionais e permitir a personalização pelos usuários.
 
----
-
 ## Como Instalar
 1. Faça o download dos arquivos do repositório.
 2. No Firefox, vá até `about:debugging`.
@@ -83,23 +81,6 @@ Essa lista foi expandida e adaptada ao longo do desenvolvimento para incluir ras
 - **API de Extensão do Firefox**  
   - Para interceptar requisições e gerenciar o bloqueio de rastreadores.  
 
-## **Capturas de Tela**
-
-#### Gerenciamento de Domínios
-![Gerenciamento de Domínios](./screenshots/domains-management.png)
-
-#### Rastreadores Bloqueados
-![Status dos Rastreadores](./screenshots/trackers-status.png)
-
-### **Contribuições**
-
-Contribuições são bem-vindas! Para enviar melhorias ou corrigir problemas:  
-
-1. Abra uma issue descrevendo a mudança desejada.  
-2. Envie um pull request com as alterações no repositório.  
-
-### **Licença**
+## **Licença**
 
 Este projeto está licenciado sob a **[MIT License](./LICENSE)**.  
-
---- 
