@@ -16,18 +16,19 @@ loadTrackerList().then(trackerList => {
     console.log("Registrando o listener de webRequest...");
 
     browser.webRequest.onBeforeRequest.addListener(
-        async function (details) {
+        async function(details) {
             const url = new URL(details.url);
 
             // Verificar se o bloqueio global está ativado
-            const { blockEnabled, customLists } = await browser.storage.local.get(['blockEnabled', 'customLists']);
+            const { blockEnabled } = await browser.storage.local.get('blockEnabled');
             if (blockEnabled === false) {
                 console.log("Bloqueio de rastreadores está desativado. Requisição permitida:", url.hostname);
                 return;
             }
 
-            // Combinar as listas personalizadas com a lista padrão
-            const combinedTrackers = trackerList.concat(...Object.values(customLists || {}));
+            // Combinar a lista personalizada com a lista padrão
+            const { customTrackers } = await browser.storage.local.get('customTrackers');
+            const combinedTrackers = trackerList.concat(customTrackers || []);
 
             // Obter a aba ativa para associar ao URL
             const tabs = await browser.tabs.query({ active: true, currentWindow: true });
@@ -38,12 +39,10 @@ loadTrackerList().then(trackerList => {
 
             // Verificar se a URL contém algum rastreador na lista combinada
             const isTracker = combinedTrackers.some(tracker => url.hostname.includes(tracker));
-            const isFirstParty = activeTab && url.hostname === new URL(activeTab.url).hostname;
-
-            console.log(`URL interceptada: ${url.hostname}, Bloquear: ${isTracker}, Tipo: ${isFirstParty ? 'Primeira Parte' : 'Terceira Parte'}`);
+            console.log(`URL interceptada: ${url.hostname}, Bloquear: ${isTracker}`);
 
             if (isTracker) {
-                console.log(`Rastreador detectado e bloqueado: ${url.hostname} (${isFirstParty ? 'Primeira Parte' : 'Terceira Parte'})`);
+                console.log(`Rastreador detectado e bloqueado: ${url.hostname}`);
 
                 // Atualizar storage com rastreadores bloqueados por aba/URL
                 browser.storage.local.get('blockedTrackers').then(data => {
@@ -61,8 +60,7 @@ loadTrackerList().then(trackerList => {
                             browser.runtime.sendMessage({
                                 action: "updatePopup",
                                 siteUrl: tabUrl,
-                                trackers: siteTrackers,
-                                isFirstParty
+                                trackers: siteTrackers
                             });
                         });
                     }
