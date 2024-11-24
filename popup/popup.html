@@ -12,23 +12,11 @@
         <input type="checkbox" id="blockToggle">
     </div>
 
-    <!-- Seção para gerenciar listas personalizadas -->
+    <!-- Seção para gerenciar lista personalizada -->
     <div class="section">
-        <h2>Gerenciar Listas</h2>
-
-        <!-- Sessão para criar e gerenciar listas -->
-        <div id="manageListsSection" class="boxed-section">
-            <div class="input-group">
-                <input type="text" id="newListInput" placeholder="Nome da nova lista">
-                <select id="listSelector"></select>
-                <button id="createListButton">Criar</button>
-                <button id="removeListButton">Remover</button>
-            </div>
-        </div>
-
-        <!-- Sessão para gerenciar domínios dentro da lista selecionada -->
-        <div id="manageDomainsSection" class="boxed-section">
-            <input type="text" id="customDomainInput" placeholder="Digite o domínio">
+        <h2>Lista de Dominios Personalizada</h2>
+        <div id="customDomainsSection">
+            <input type="text" id="customDomainInput" placeholder="Digite o dominio">
             <div class="button-group">
                 <button id="addDomainButton">Adicionar</button>
                 <button id="removeDomainButton">Remover</button>
@@ -37,10 +25,15 @@
         </div>
     </div>
 
+    <!-- Seção para rastreadores padrão -->
+    <div class="section">
+        <h2>Rastreadores Bloqueados</h2>
+        <ul id="defaultTrackersList"></ul>
+    </div>
+
     <!-- Seção para exibir rastreadores bloqueados -->
     <div class="section">
-        <h2>Status</h2>
-        <div id="status" class="boxed-section"></div>
+        <div id="status"></div>
     </div>
 
     <script src="popup.js"></script>
