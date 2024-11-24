@@ -12,8 +12,10 @@ O **Tracker Blocker** é uma extensão para o navegador Firefox desenvolvida par
 - **Bloqueio de Rastreadores**:
   - Utiliza uma lista padrão de rastreadores conhecidos.
   - Suporta uma lista personalizada criada pelo usuário.
+
 - **Gerenciamento de Domínios**:
   - Adicionar e remover domínios na lista personalizada.
+  
 - **Interface Simples e Intuitiva**:
   - Visualize e gerencie os rastreadores diretamente na extensão.
 
