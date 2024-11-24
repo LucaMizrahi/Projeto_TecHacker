@@ -44,6 +44,10 @@ A lista inicial de rastreadores incluía domínios amplamente conhecidos, como:
 
 Essa lista foi expandida e adaptada ao longo do desenvolvimento para incluir rastreadores adicionais e permitir a personalização pelos usuários.
 
+O projeto também possui um outro arquivo json com uma lista mais completa de rastreadores, que pode ser utilizada para substituir a lista padrão (`lista_personalizada.json`). 
+
+O grupo optou por manter uma lista mais limitado(`trackerList.json`) para facilitar a visualização e a compreensão do funcionamento da extensão. Além disso, facilitar também a adição de novos domínios na lista personalizada, que ainda não estejam na lista padrão de bloqueio do plugin.
+
 ## Como Instalar
 1. Faça o download dos arquivos do repositório.
 2. No Firefox, vá até `about:debugging`.
