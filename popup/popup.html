@@ -8,33 +8,17 @@
 
     <!-- Seção para alternar o bloqueio -->
     <div class="section">
-        <label for="blockToggle">Bloquear Rastreadores</label>
+        <label for="blockToggle">Bloquear Rastreadores:</label>
         <input type="checkbox" id="blockToggle">
     </div>
 
     <!-- Seção para gerenciar listas personalizadas -->
     <div class="section">
-        <h2>Gerenciar Listas</h2>
-
-        <!-- Sessão para criar e gerenciar listas -->
-        <div id="manageListsSection" class="boxed-section">
-            <div class="input-group">
-                <input type="text" id="newListInput" placeholder="Nome da nova lista">
-                <select id="listSelector"></select>
-                <button id="createListButton">Criar</button>
-                <button id="removeListButton">Remover</button>
-            </div>
-        </div>
-
-        <!-- Sessão para gerenciar domínios dentro da lista selecionada -->
-        <div id="manageDomainsSection" class="boxed-section">
-            <input type="text" id="customDomainInput" placeholder="Digite o domínio">
-            <div class="button-group">
-                <button id="addDomainButton">Adicionar</button>
-                <button id="removeDomainButton">Remover</button>
-            </div>
-            <ul id="customDomainsList"></ul>
-        </div>
+        <h2>Gerenciar Lista Personalizada</h2>
+        <input type="text" id="customDomainInput" placeholder="Digite o dominio">
+        <button id="addDomainButton">Adicionar</button>
+        <button id="removeDomainButton">Remover</button>
+        <ul id="customDomainsList"></ul>
     </div>
 
     <!-- Seção para exibir rastreadores bloqueados -->

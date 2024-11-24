@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         statusDiv.innerHTML = '';
         if (trackers.length > 0) {
+            statusDiv.textContent = "Rastreadores bloqueados:";
             const ul = document.createElement('ul');
             trackers.forEach(tracker => {
                 const li = document.createElement('li');

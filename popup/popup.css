@@ -2,69 +2,51 @@ body {
   font-family: Arial, sans-serif;
   margin: 10px;
   padding: 0;
-  text-align: center;
+  text-align: center; /* Centralizar todos os elementos */
 }
 
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
-  font-weight: bold;
+  text-align: center; /* Centralizar o título */
+  font-weight: bold; /* Destacar o título */
   color: #333;
 }
 
 .section {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  text-align: left; /* Deixar as seções alinhadas à esquerda */
 }
 
-.boxed-section {
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+#blockToggle {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+#status {
   border: 1px solid #ccc;
   padding: 10px;
   background-color: #f9f9f9;
   border-radius: 5px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-#status {
   max-height: 200px;
   overflow-y: auto;
-}
-
-#newListInput, #customDomainInput {
-  margin-bottom: 10px;
-  padding: 5px;
-  width: calc(100% - 12px);
-}
-
-button {
-  margin: 5px;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #007BFF;
-  color: #fff;
-}
-
-button:active {
-  background-color: #0056b3;
+  text-align: left; /* Alinhar texto da lista à esquerda */
 }
 
 ul {
   padding-left: 20px;
-  text-align: left;
+  text-align: left; /* Alinhar itens da lista à esquerda */
+}
+
+li {
   list-style-type: disc;
-}
-
-.button-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-button#removeListButton,
-button#createListButton {
-  width: 48%; /* Diminuir largura para caber em uma linha */
+  margin-left: 10px;
 }
