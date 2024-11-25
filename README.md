@@ -77,6 +77,48 @@ O grupo optou por manter uma lista mais limitado(`trackerList.json`) para facili
 3. **Visualizar Rastreadores Bloqueados**  
    - Acesse a seção **Rastreadores Bloqueados** no popup para visualizar os rastreadores detectados e bloqueados para o site atual.  
 
+## Como Verificar o Funcionamento
+
+Para garantir que a extensão está funcionando corretamente, siga este passo a passo:
+
+1. **Abra as Ferramentas do Desenvolvedor (F12):**  
+   - No Firefox, pressione `F12` ou clique no menu **Hambúrguer** (três linhas no canto superior direito), vá até **Mais Ferramentas** e selecione **Ferramentas do Desenvolvedor**.
+
+2. **Acesse a Aba de Rede:**  
+   - No painel de ferramentas, clique na aba **Rede** (Network). Isso permite monitorar todas as requisições feitas pelo site atual.
+
+   ![Aba de Rede no Firefox](./imgs/network-tab.png)
+
+3. **Recarregue a Página:**  
+   - Com a aba de rede aberta, recarregue o site pressionando `F5`. Agora você verá uma lista de requisições feitas pelo site.
+
+4. **Verifique os Rastreamentos Bloqueados:**  
+   - Use o campo de filtro na parte superior da aba de rede para procurar por domínios conhecidos de rastreadores, como `doubleclick.net` ou `googlesyndication.com`. 
+
+   ![Filtro de Rastreamento](./imgs/network-filter.png)
+
+   **Obs**: Observe que a coluna `Transferido` mostra que a requisição foi bloqueada pelo plugin.
+
+5. **Confirme o Bloqueio:**  
+   - Quando um rastreador for identificado e bloqueado pela extensão, você verá um status **cancelado** ou a requisição não será carregada corretamente.
+
+6. **Veja os Rastreamentos no Popup da Extensão:**  
+   - Abra o popup da extensão e confira a seção de **Rastreadores Bloqueados**. Os rastreadores bloqueados na aba atual devem aparecer listados.
+
+   ![Rastreadores Bloqueados no Popup](./imgs/blockers-popup.png)
+
+
+## Observações:
+- **Como Adicionar Rastreadores para Teste:**  
+  - Insira um domínio comum como `amazon.com` na lista de rastreadores personalizados e teste se ele aparece no log da aba de rede.
+
+  ![Adicionar Rastreador](./imgs/add-tracker.png)
+
+- **Recarregue a Extensão Sempre que Atualizar a Lista:**  
+  - Após adicionar novos rastreadores no arquivo `trackerList.json`, recarregue a extensão para que as alterações sejam aplicadas. Observe que agora as requisições que possuirem "amazon.com" serão bloqueadas.
+
+  ![Recarregar Extensão](./imgs/reload-extension.png)
+
 ## **Tecnologias Utilizadas**
 
 - **HTML, CSS e JavaScript**  
